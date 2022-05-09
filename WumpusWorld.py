@@ -121,34 +121,36 @@ class Agent:
                     return True
                 # If an adjacent cell of the to be checked cell was visited before and it isn't a breeze the cell to be checked is free
                 if y < 3:
-                    print("up    ==> V: ", self.knowledgeBase[y + 1][x].visited, " | S: ", self.knowledgeBase[y + 1][x].stench)
+                    #print("up    ==> V: ", self.knowledgeBase[y + 1][x].visited, " | S: ", self.knowledgeBase[y + 1][x].stench)
                     if self.knowledgeBase[y + 1][x].visited:
                         if self.knowledgeBase[y + 1][x].stench:
                             numberStenches += 1
                         else:
                             self.knowledgeBase[y][x].free
                 if y > 0:
-                    print("down  ==> V: ", self.knowledgeBase[y - 1][x].visited, " | S: ", self.knowledgeBase[y - 1][x].stench)
+                    #print("down  ==> V: ", self.knowledgeBase[y - 1][x].visited, " | S: ", self.knowledgeBase[y - 1][x].stench)
                     if self.knowledgeBase[y - 1][x].visited:
                         if self.knowledgeBase[y - 1][x].stench:
                             numberStenches += 1
                         else:
                             self.knowledgeBase[y][x].free
                 if x < 3:
-                    print("right ==> V: ", self.knowledgeBase[y][x + 1].visited, " | S: ", self.knowledgeBase[y][x + 1].stench)
+                    #print("right ==> V: ", self.knowledgeBase[y][x + 1].visited, " | S: ", self.knowledgeBase[y][x + 1].stench)
                     if self.knowledgeBase[y][x + 1].visited:
                         if self.knowledgeBase[y][x + 1].stench:
                             numberStenches += 1
                         else:
                             self.knowledgeBase[y][x].free
                 if x > 0:
-                    print("left  ==> V: ", self.knowledgeBase[y][x - 1].visited, " | S: ", self.knowledgeBase[y][x - 1].stench)
+                    #print("left  ==> V: ", self.knowledgeBase[y][x - 1].visited, " | S: ", self.knowledgeBase[y][x - 1].stench)
                     if self.knowledgeBase[y][x - 1].visited:
                         if self.knowledgeBase[y][x - 1].stench:
                             numberStenches += 1
                         else:
+                            #print("setting free")
                             self.knowledgeBase[y][x].free
 
+                #print("free: ", self.knowledgeBase[y][x].free)
                 if not self.knowledgeBase[y][x].free:
                     # If the number of breezes around the cell to be checked is equal to its amount of adjacent cells the cell is set as a pit
                     # If the number of breezes is less it might be a pit
